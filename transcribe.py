@@ -110,7 +110,6 @@ def annotate_video(input_uri):
 
 def gpt_check():
     client = OpenAI()
-    OpenAI.api_key = "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"
 
     response = client.chat.completions.create(
     model="gpt-3.5-turbo",
