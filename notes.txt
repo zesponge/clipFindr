@@ -4,8 +4,8 @@ cd .venv
 Scripts/activate
 pip install -r requirements.txt
 
-to run flask backend: (run while using chrome extension)
 python -m flask run
+or just press the run button after the packages are installed
 
 to run web app front-end:
 cd into frontend and summaraizer
