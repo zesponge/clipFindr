@@ -1,4 +1,5 @@
 from google.cloud import videointelligence
+from openai import OpenAI
 import os
 
 def transcribe_video(input_uri):
@@ -106,6 +107,22 @@ def annotate_video(input_uri):
             print("\tSegment {}: {}".format(i, positions))
             print("\tConfidence: {}".format(confidence))
         print("\n")
+
+def gpt_check():
+    client = OpenAI()
+    OpenAI.api_key = "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"
+
+    response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Who won the world series in 2020?"},
+        {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+        {"role": "user", "content": "Where was it played?"}
+    ]
+    )
+
+    print(response.choices[0].text)
     
 
 if __name__ == "__main__":
@@ -114,5 +131,6 @@ if __name__ == "__main__":
 
     # Transcribe the video and store the result in a variable
     # video_transcription = transcribe_video(input_uri)
-    annotate_video(input_uri)
+    # annotate_video(input_uri)
+    gpt_check()
 
