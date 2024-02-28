@@ -246,6 +246,7 @@ Shot label description: food
     messages=[
         {"role": "system", "content": "You are a video analysis tool used to tell users during what time segments specific objects appear."},
         {"role": "user", "content": "given the following text: " + data_string + " what are the important objects in the video?"},
+        # try asking for a specific object here        
     ]
     )
 
