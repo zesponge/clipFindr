@@ -1,6 +1,29 @@
 from google.cloud import videointelligence
 from openai import OpenAI
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import os
+
+app = Flask(__name__)
+CORS(app)
+
+input_uri = "gs://scrobblesearch/subAd.mp4"
+
+@app.get('/gptcall')
+def gptcall():
+    gptResponse = gpt_check()
+    return gptResponse
+
+@app.get('/transcribe')
+def transcribeCall():
+    transcript = transcribe_video(input_uri)
+    return transcript
+
+@app.get('/annotate')
+def annotateCall():
+    annotation = annotate_video(input_uri)
+    return ("annotation done")
+
 
 def transcribe_video(input_uri):
     # set key credentials file path
@@ -103,9 +126,9 @@ def annotate_video(input_uri):
                 + shot.segment.end_time_offset.microseconds / 1e6
             )
             positions = "{}s to {}s".format(start_time, end_time)
-            confidence = shot.confidence
+            # confidence = shot.confidence
             print("\tSegment {}: {}".format(i, positions))
-            print("\tConfidence: {}".format(confidence))
+            # print("\tConfidence: {}".format(confidence))
         print("\n")
 
 def gpt_check():
@@ -120,14 +143,16 @@ def gpt_check():
     )
 
     print(completion.choices[0].message)
+    return(completion.choices[0].message)
+    
     
 
 if __name__ == "__main__":
-    # Replace this variable with the URI of your video in Google Cloud Storage
-    input_uri = "gs://scrobblesearch/subAd.mp4"
+    app.run()
 
     # Transcribe the video and store the result in a variable
     # video_transcription = transcribe_video(input_uri)
     # annotate_video(input_uri)
-    gpt_check()
+    # gpt_check()
 
+    
