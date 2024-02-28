@@ -40,7 +40,7 @@ def transcribe_video(input_uri):
             print("full transcript:")
 
             print("Transcript: {}".format(alternative.transcript))
-            print("Confidence: {}\n".format(alternative.confidence))
+            # print("Confidence: {}\n".format(alternative.confidence))
 
             # print("everything:")
             # print(alternative)
@@ -103,7 +103,7 @@ def annotate_video(input_uri):
             positions = "{}s to {}s".format(start_time, end_time)
             confidence = segment.confidence
             print("\tSegment {}: {}".format(i, positions))
-            print("\tConfidence: {}".format(confidence))
+            # print("\tConfidence: {}".format(confidence))
         print("\n")
 
     # Process shot level label annotations
@@ -127,7 +127,7 @@ def annotate_video(input_uri):
             positions = "{}s to {}s".format(start_time, end_time)
             confidence = shot.confidence
             print("\tSegment {}: {}".format(i, positions))
-            print("\tConfidence: {}".format(confidence))
+            # print("\tConfidence: {}".format(confidence))
         print("\n")
 
     # Process frame level label annotations
@@ -144,11 +144,9 @@ def annotate_video(input_uri):
         frame = frame_label.frames[0]
         time_offset = frame.time_offset.seconds + frame.time_offset.microseconds / 1e6
         print("\tFirst frame time offset: {}s".format(time_offset))
-        print("\tFirst frame confidence: {}".format(frame.confidence))
+        # print("\tFirst frame confidence: {}".format(frame.confidence))
         print("\n")
     
-
-
 
 if __name__ == "__main__":
     # Replace this variable with the URI of your video in Google Cloud Storage
