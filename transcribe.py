@@ -37,16 +37,18 @@ def transcribe_video(input_uri):
         # Each alternative is a different possible transcription
         # and has its own confidence score.
         for alternative in speech_transcription.alternatives:
-            print("Alternative level information:")
+            print("full transcript:")
 
             print("Transcript: {}".format(alternative.transcript))
             print("Confidence: {}\n".format(alternative.confidence))
 
+            # print("everything:")
+            # print(alternative)
             
-            print("Word level information:")
+            print("group information:")
             for word_info in alternative.words:
                 word = word_info.word
-                start_time = word_info.start_time
+                start_time = 
                 end_time = word_info.end_time
                 print(
                     "\t{}s - {}s: {}".format(
