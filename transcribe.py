@@ -133,7 +133,111 @@ def annotate_video(input_uri):
 
 def gpt_check():
 
-    data_string = "Shot label description: cake \n Segment 0: 10.301958s to 11.219541s \n\n Shot label description: cooking \n         Segment 0: 3.5035s to 5.25525s   \n  Segment 1: 13.930583s to 15.557208s\n\n"
+    data_string = """
+Shot label description: glasses
+        Segment 0: 9.217541s to 10.26025s  
+        Segment 1: 12.804458s to 13.888875s
+
+
+Shot label description: cuisine
+
+        Segment 0: 13.930583s to 15.557208s
+        Segment 1: 15.598916s to 16.891875s
+
+
+Shot label description: cake
+
+        Segment 0: 10.301958s to 11.219541s
+
+
+Shot label description: conversation       
+
+        Segment 0: 9.217541s to 10.26025s  
+        Segment 1: 18.059708s to 22.77275s 
+        Segment 2: 23.982291s to 25.442083s
+
+
+Shot label description: fast food
+
+        Segment 0: 16.933583s to 18.018s
+        Segment 1: 26.77675s to 28.194833s
+        Segment 2: 28.236541s to 29.988291s
+
+
+Shot label description: cheeseburger
+
+        Segment 0: 16.933583s to 18.018s
+
+
+Shot label description: hamburger
+
+        Segment 0: 16.933583s to 18.018s
+        Segment 1: 26.77675s to 28.194833s
+        Segment 2: 28.236541s to 29.988291s
+
+
+Shot label description: senior citizen
+
+        Segment 0: 9.217541s to 10.26025s
+        Segment 1: 18.059708s to 22.77275s
+        Segment 2: 23.982291s to 25.442083s
+
+
+Shot label description: facial expression
+
+        Segment 0: 23.982291s to 25.442083s
+
+
+Shot label description: junk food
+
+        Segment 0: 16.933583s to 18.018s
+        Segment 1: 28.236541s to 29.988291s
+
+
+Shot label description: meat
+
+        Segment 0: 3.5035s to 5.25525s
+
+
+Shot label description: eating
+
+        Segment 0: 13.930583s to 15.557208s
+        Segment 1: 16.933583s to 18.018s
+
+
+Shot label description: cooking
+
+        Segment 0: 3.5035s to 5.25525s
+        Segment 1: 13.930583s to 15.557208s
+
+
+Shot label description: sandwich
+
+        Segment 0: 16.933583s to 18.018s
+        Segment 1: 26.77675s to 28.194833s
+        Segment 2: 28.236541s to 29.988291s
+
+
+Shot label description: finger food
+
+        Segment 0: 26.77675s to 28.194833s
+
+
+Shot label description: television advertisement
+        Segment 0: 12.804458s to 13.888875s
+
+
+Shot label description: food
+        Segment 0: 3.5035s to 5.25525s
+        Segment 1: 10.301958s to 11.219541s
+        Segment 2: 11.26125s to 12.76275s
+        Segment 3: 12.804458s to 13.888875s
+        Segment 4: 13.930583s to 15.557208s
+        Segment 5: 15.598916s to 16.891875s
+        Segment 6: 16.933583s to 18.018s
+        Segment 7: 26.77675s to 28.194833s
+        Segment 8: 28.236541s to 29.988291s
+    """
 
     client = OpenAI()
 
