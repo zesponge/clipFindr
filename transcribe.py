@@ -58,7 +58,7 @@ def transcribe_video(input_uri):
 
 if __name__ == "__main__":
     # Replace this variable with the URI of your video in Google Cloud Storage
-    input_uri = "gs://scrobblesearch/doordashAd.mp4"
+    input_uri = "gs://scrobblesearch/subAd.mp4"
 
     # Transcribe the video and store the result in a variable
     video_transcription = transcribe_video(input_uri)
