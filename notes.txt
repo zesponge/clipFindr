@@ -4,7 +4,6 @@ cd .venv
 Scripts/activate
 pip install -r requirements.txt
 
-
 to run flask backend: (run while using chrome extension)
 python -m flask run
 
@@ -17,11 +16,3 @@ web app server:
 cd into server
 npm i
 npm start
-
-mongodb:
-lebron
-zesponge
-
-test git
-
-sample video to test summaraizer: https://www.youtube.com/watch?v=z8aBZZnv6y8
