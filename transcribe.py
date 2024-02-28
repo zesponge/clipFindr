@@ -11,8 +11,8 @@ input_uri = "gs://scrobblesearch/subAd.mp4"
 
 @app.get('/gptcall')
 def gptcall():
-    gptResponse = gpt_check()
-    return gptResponse
+    gptRes = gpt_check()
+    return(gptRes)
 
 @app.get('/transcribe')
 def transcribeCall():
@@ -113,7 +113,7 @@ def annotate_video(input_uri):
         print("Shot label description: {}".format(shot_label.entity.description))
         for category_entity in shot_label.category_entities:
             print(
-                "\tLabel category description: {}".format(category_entity.description)
+                # "\tLabel category description: {}".format(category_entity.description)
             )
 
         for i, shot in enumerate(shot_label.segments):
@@ -132,18 +132,21 @@ def annotate_video(input_uri):
         print("\n")
 
 def gpt_check():
+
+    data_string = "Shot label description: cake \n Segment 0: 10.301958s to 11.219541s \n\n Shot label description: cooking \n         Segment 0: 3.5035s to 5.25525s   \n  Segment 1: 13.930583s to 15.557208s\n\n"
+
     client = OpenAI()
 
     completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "system", "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
-        {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
+        {"role": "system", "content": "You are a video analysis tool used to tell users during what time segments specific objects appear."},
+        {"role": "user", "content": "given the following text: " + data_string + " what are the important objects in the video?"},
     ]
     )
 
-    print(completion.choices[0].message)
-    return(completion.choices[0].message)
+    print(completion.choices[0].message.content)
+    return(completion.choices[0].message.content)
     
     
 
@@ -154,5 +157,3 @@ if __name__ == "__main__":
     # video_transcription = transcribe_video(input_uri)
     # annotate_video(input_uri)
     # gpt_check()
-
-    
