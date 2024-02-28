@@ -16,3 +16,5 @@ web app server:
 cd into server
 npm i
 npm start
+
+input uri: gs://scrobblesearch/doordashAd.mp4
